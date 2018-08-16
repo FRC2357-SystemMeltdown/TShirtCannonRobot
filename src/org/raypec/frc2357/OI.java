@@ -45,8 +45,8 @@ public class OI {
     // Start the command when the button is released  and let it run the command
     // until it is finished as determined by it's isFinished method.
     // button.whenReleased(new ExampleCommand());
-	static private double deadZoneX = 0.1;
-	static private double deadZoneY = 0.1;
+	static private double deadZoneX = 0.05;
+	static private double deadZoneY = 0.05;
 	
 	private Joystick driveController = new Joystick(1);
 	private JoystickButton a;
@@ -71,12 +71,12 @@ public class OI {
 	}
 	
 	public double getTankLeft() {
-		double y = driveController.getRawAxis(2);
+		double y = - driveController.getRawAxis(2) * 0.75;
 		return (Math.abs(y) > deadZoneY ? y : 0.0);
 	}
 	
 	public double getTankRight() {
-		double y = driveController.getRawAxis(6);
+		double y = driveController.getRawAxis(5) * 0.75;
 		return (Math.abs(y) > deadZoneY ? y : 0.0);
 	}
 }
