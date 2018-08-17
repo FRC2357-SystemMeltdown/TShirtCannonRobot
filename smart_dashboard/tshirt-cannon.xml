@@ -1,0 +1,35 @@
+<xml version="1.0">
+<dashboard>
+	<widget field="Fire Max" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.FormattedField">
+		<location x="393" y="123"/>
+		<width>71</width>
+	</widget>
+	<widget field="Fire Duration" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.FormattedField">
+		<location x="208" y="123"/>
+		<width>92</width>
+	</widget>
+	<widget field="Fire Min" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.FormattedField">
+		<location x="24" y="123"/>
+		<width>72</width>
+	</widget>
+	<widget field="Reset Firing" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.CommandButton">
+		<location x="206" y="154"/>
+		<width>95</width>
+	</widget>
+	<widget field="Set Max" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.CommandButton">
+		<location x="393" y="153"/>
+	</widget>
+	<widget field="Set Min" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.CommandButton">
+		<location x="32" y="153"/>
+	</widget>
+	<widget field="Power Level" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.ProgressBar">
+		<location x="23" y="21"/>
+		<width>442</width>
+		<height>93</height>
+		<property name="Maximum" value="1.0"/>
+		<property name="Minimum" value="-0.05"/>
+	</widget>
+</dashboard>
+<live-window>
+</live-window>
+</xml>

@@ -6,6 +6,7 @@
 package org.raypec.frc2357.commands;
 
 
+import edu.wpi.first.wpilibj.command.Command;
 import org.raypec.frc2357.CRIORobot;
 import org.raypec.frc2357.OI;
 import org.raypec.frc2357.subsystems.DriveSubsystem;
@@ -13,7 +14,7 @@ import org.raypec.frc2357.subsystems.DriveSubsystem;
  *
  * @author Kevin
  */
-public class TankDriveCommand extends CommandBase {
+public class TankDriveCommand extends Command {
 	
 	private DriveSubsystem driveSub = CRIORobot.instance.driveSub;
 	private OI oi;

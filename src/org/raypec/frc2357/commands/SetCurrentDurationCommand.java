@@ -8,19 +8,21 @@ package org.raypec.frc2357.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import org.raypec.frc2357.CRIORobot;
 import org.raypec.frc2357.OI;
-import org.raypec.frc2357.subsystems.DriveSubsystem;
+import org.raypec.frc2357.subsystems.FiringValveSubsystem;
 
 /**
+ *
+ * @author Kevin
  */
-public class ArcadeDriveCommand extends Command {
-
-	private final DriveSubsystem driveSub = CRIORobot.instance.driveSub;
+public class SetCurrentDurationCommand extends Command {
+	private final FiringValveSubsystem firingSub;
 	private OI oi;
 	
-	public ArcadeDriveCommand() {
+	public SetCurrentDurationCommand() {
 		// Use requires() here to declare subsystem dependencies
 		// eg. requires(chassis);
-		requires(driveSub);
+		firingSub = CRIORobot.instance.firingSub;
+		requires(firingSub);
 	}
 
 	// Called just before this Command runs the first time
@@ -30,7 +32,17 @@ public class ArcadeDriveCommand extends Command {
 
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
-		driveSub.arcade(oi.getDriveSpeed(), oi.getDriveRotation());
+		double durationAdjust = oi.getDurationAdjustment();
+
+		long min = firingSub.getMinDuration();
+		long max = firingSub.getMaxDuration();
+		double current = firingSub.getCurrentDuration();
+
+		double nextDuration = current + durationAdjust;
+		nextDuration = Math.max(nextDuration, min);
+		nextDuration = Math.min(nextDuration, max);
+
+		firingSub.setCurrentDuration(nextDuration);
 	}
 
 	// Make this return true when this Command no longer needs to run execute()
@@ -45,5 +57,6 @@ public class ArcadeDriveCommand extends Command {
 	// Called when another command which requires one or more of the same
 	// subsystems is scheduled to run
 	protected void interrupted() {
+		end();
 	}
 }

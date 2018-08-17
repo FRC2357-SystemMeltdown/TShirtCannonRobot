@@ -9,11 +9,9 @@ package org.raypec.frc2357;
 
 
 import edu.wpi.first.wpilibj.IterativeRobot;
-import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.Preferences;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
-import org.raypec.frc2357.commands.CommandBase;
-import org.raypec.frc2357.commands.ExampleCommand;
 import org.raypec.frc2357.subsystems.FiringValveSubsystem;
 import org.raypec.frc2357.subsystems.DriveSubsystem;
 
@@ -29,11 +27,10 @@ public class CRIORobot extends IterativeRobot {
     public static CRIORobot instance;
     
     public OI oi;
-
-    Command autonomousCommand;
-    
     public FiringValveSubsystem firingSub;
     public DriveSubsystem driveSub;
+
+    private Preferences prefs;
 
     /**
      * This function is run when the robot is first started up and should be
@@ -42,16 +39,11 @@ public class CRIORobot extends IterativeRobot {
     public void robotInit() {
 	instance = this;
 	System.out.println("robotInit");
-	
-	firingSub = new FiringValveSubsystem();
+
+	prefs = Preferences.getInstance();
+	firingSub = new FiringValveSubsystem(prefs);
 	driveSub = new DriveSubsystem();
 	oi = new OI();
-
-        // instantiate the command used for the autonomous period
-        autonomousCommand = new ExampleCommand();
-
-        // Initialize all subsystems
-        CommandBase.init();
     }
 
     public void disabledInit() {
@@ -60,7 +52,6 @@ public class CRIORobot extends IterativeRobot {
     public void autonomousInit() {
         // schedule the autonomous command (example)
 	System.out.println("autonomousInit");
-        autonomousCommand.start();
     }
 
     /**
@@ -76,7 +67,6 @@ public class CRIORobot extends IterativeRobot {
         // continue until interrupted by another command, remove
         // this line or comment it out.
 	System.out.println("teleopInit");
-        autonomousCommand.cancel();
     }
 
     /**
