@@ -6,19 +6,27 @@
 package org.raypec.frc2357.subsystems;
 
 import edu.wpi.first.wpilibj.RobotDrive;
+import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.Talon;
 import org.raypec.frc2357.commands.ArcadeDriveCommand;
+import org.raypec.frc2357.devices.LinearTrimSpeedController;
 
 /**
- * @author Kevin
+ * Controls the drive base of the T-Shirt Cannon Robot.
+ * 
+ * Uses arcade mode to control 2 wheelchair motors.
+ * Since one motor seems to be faster than the other, this
+ * implements a trim system to compensate for the difference.
  */
 public class DriveSubsystem extends Subsystem {
-	// Put methods for controlling this subsystem
-	// here. Call these from Commands.
+	public static final double TRIM_LEFT = 1.0D;
+	public static final double TRIM_RIGHT = 1.0D;
 	
-	private final Talon left = new Talon(1);
-	private final Talon right = new Talon(2);
+	private final SpeedController left =
+		new LinearTrimSpeedController(new Talon(1), 0, TRIM_LEFT);
+	private final SpeedController right =
+		new LinearTrimSpeedController(new Talon(2), 0, TRIM_RIGHT);
 	private final RobotDrive drive = new RobotDrive( left, right );
 
 	public void initDefaultCommand() {
