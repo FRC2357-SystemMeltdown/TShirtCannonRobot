@@ -54,6 +54,14 @@ public class OI {
 	public OI(){
 		a = new JoystickButton(driveController, 1);
 		a.whenPressed(new FireCommand());
+<<<<<<< Updated upstream
+=======
+		
+
+		SmartDashboard.putData("Reset Firing", new ResetFiringDurationsCommand());
+		SmartDashboard.putData("Set Min", new SetMinDurationCommand());
+		SmartDashboard.putData("Set Max", new SetMaxDurationCommand());
+>>>>>>> Stashed changes
 	}
 	
 	public Joystick getDriveController(){
@@ -61,6 +69,7 @@ public class OI {
 	}
 	
 	public double getDriveRotation() {
+<<<<<<< Updated upstream
 		double x = driveController.getRawAxis(5);
 		return (Math.abs(x) > deadZoneX ? x : 0.0);		
 	}
@@ -78,6 +87,27 @@ public class OI {
 	public double getTankRight() {
 		double y = driveController.getRawAxis(6);
 		return (Math.abs(y) > deadZoneY ? y : 0.0);
+=======
+		double x = driveController.getRawAxis(1);
+		System.out.println(x);
+		return (Math.abs(x) > DEAD_ZONE_X ? x : 0.0);
+               		
+	}
+	
+	public double getDriveSpeed() {
+		double y = driveController.getRawAxis(0);
+		return (Math.abs(y) > DEAD_ZONE_Y ? y : 0.0);
+	}
+	
+	public double getTankLeft() {
+		double y = - driveController.getRawAxis(1) * 0.75;
+		return (Math.abs(y) > DEAD_ZONE_Y ? y : 0.0);
+	}
+	
+	public double getTankRight() {
+		double y = driveController.getRawAxis(1) * 0.75;
+		return (Math.abs(y) > DEAD_ZONE_Y ? y : 0.0);
+>>>>>>> Stashed changes
 	}
 }
 	

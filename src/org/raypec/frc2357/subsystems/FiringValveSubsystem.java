@@ -12,6 +12,12 @@ import edu.wpi.first.wpilibj.Solenoid;
 public class FiringValveSubsystem extends Subsystem {
 	private final Solenoid solenoid;
 	private final Timer timer;
+<<<<<<< Updated upstream
+=======
+	private double currentDuration = 50;
+	private long minDuration = MIN_DURATION_DEFAULT;
+	private long maxDuration = MAX_DURATION_DEFAULT;
+>>>>>>> Stashed changes
 	
 	private class FiringCompleteTask extends TimerTask {
 		public void run() {
