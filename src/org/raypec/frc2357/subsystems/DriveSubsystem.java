@@ -29,6 +29,7 @@ public class DriveSubsystem extends Subsystem {
 	
 	public void arcade(double speed, double rotation) {
 		drive.arcadeDrive(speed, rotation);
+		System.out.println("arccade runs");
 	}
 	
 	public void tankDrive(double left, double right) {

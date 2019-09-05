@@ -13,7 +13,10 @@ public class FiringValveSubsystem extends Subsystem {
 	private final Solenoid solenoid;
 	private final Timer timer;
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 	private double currentDuration = 50;
 	private long minDuration = MIN_DURATION_DEFAULT;
 	private long maxDuration = MAX_DURATION_DEFAULT;

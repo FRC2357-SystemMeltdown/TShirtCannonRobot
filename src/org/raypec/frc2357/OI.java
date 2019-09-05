@@ -70,6 +70,7 @@ public class OI {
 	
 	public double getDriveRotation() {
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 		double x = driveController.getRawAxis(5);
 		return (Math.abs(x) > deadZoneX ? x : 0.0);		
 	}
@@ -92,6 +93,10 @@ public class OI {
 		System.out.println(x);
 		return (Math.abs(x) > DEAD_ZONE_X ? x : 0.0);
                		
+=======
+		double x = driveController.getRawAxis(1);
+		return (Math.abs(x) > DEAD_ZONE_X ? x : 0.0);		
+>>>>>>> Stashed changes
 	}
 	
 	public double getDriveSpeed() {
@@ -100,12 +105,20 @@ public class OI {
 	}
 	
 	public double getTankLeft() {
+<<<<<<< Updated upstream
 		double y = - driveController.getRawAxis(1) * 0.75;
+=======
+		double y = - driveController.getRawAxis(0) * 0.75;
+>>>>>>> Stashed changes
 		return (Math.abs(y) > DEAD_ZONE_Y ? y : 0.0);
 	}
 	
 	public double getTankRight() {
+<<<<<<< Updated upstream
 		double y = driveController.getRawAxis(1) * 0.75;
+=======
+		double y = driveController.getRawAxis(0) * 0.75;
+>>>>>>> Stashed changes
 		return (Math.abs(y) > DEAD_ZONE_Y ? y : 0.0);
 >>>>>>> Stashed changes
 	}
