@@ -1,4 +1,8 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
  * and open the template in the editor.
+ */
 package org.raypec.frc2357.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
@@ -7,15 +11,13 @@ import org.raypec.frc2357.subsystems.FiringValveSubsystem;
 
 /**
  *
+ * @author Kevin
  */
-public class FireCommand extends Command {
+public class SetMinDurationCommand extends Command {
 	
-    }
-	private final FiringValveSubsystem firingSub;
-
-	public FireCommand() {
-		firingSub = CRIORobot.instance.firingSub;
-		requires(firingSub);
+	public SetMinDurationCommand() {
+		// Use requires() here to declare subsystem dependencies
+		// eg. requires(chassis);
 	}
 
 	// Called just before this Command runs the first time
@@ -24,12 +26,11 @@ public class FireCommand extends Command {
 
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
-	    firingSub.fire();
 	}
 
 	// Make this return true when this Command no longer needs to run execute()
 	protected boolean isFinished() {
-	    return true;
+		return false;
 	}
 
 	// Called once after isFinished returns true
@@ -39,6 +40,5 @@ public class FireCommand extends Command {
 	// Called when another command which requires one or more of the same
 	// subsystems is scheduled to run
 	protected void interrupted() {
-	    end();
 	}
 }

@@ -8,7 +8,7 @@ package org.raypec.frc2357.subsystems;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.Talon;
-import org.raypec.frc2357.commands.TankDriveCommand;
+import org.raypec.frc2357.commands.ArcadeDriveCommand;
 
 /**
  *
@@ -24,15 +24,11 @@ public class DriveSubsystem extends Subsystem {
 
 	public void initDefaultCommand() {
 		// Set the default command for a subsystem here.
-		setDefaultCommand(new TankDriveCommand());	
+		setDefaultCommand(new ArcadeDriveCommand());	
 	}
 	
 	public void arcade(double speed, double rotation) {
 		drive.arcadeDrive(speed, rotation);
 		System.out.println("arccade runs");
-	}
-	
-	public void tankDrive(double left, double right) {
-		drive.tankDrive(left, right);
 	}
 }
